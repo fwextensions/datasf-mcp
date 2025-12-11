@@ -105,6 +105,26 @@ Test the server interactively in your browser:
 npx -y @modelcontextprotocol/inspector node dist/index.js
 ```
 
+### Quick Start with npx (Recommended)
+
+The easiest way to use the server is directly from GitHub without cloning:
+
+```json
+{
+  "mcpServers": {
+    "datasf": {
+      "command": "npx",
+      "args": ["-y", "github:fwextensions/datasf-mcp-server"],
+      "env": {
+        "SOCRATA_APP_TOKEN": "your-optional-token"
+      }
+    }
+  }
+}
+```
+
+This will automatically download, build, and run the latest version from GitHub.
+
 ### Configuration for Claude Desktop
 
 Add to your Claude Desktop config file:
@@ -133,6 +153,24 @@ Add to your Claude Desktop config file:
 
 Create or edit `.kiro/settings/mcp.json`:
 
+**Option 1: Using npx (recommended)**
+```json
+{
+  "mcpServers": {
+    "datasf": {
+      "command": "npx",
+      "args": ["-y", "github:fwextensions/datasf-mcp-server"],
+      "env": {
+        "SOCRATA_APP_TOKEN": "your-optional-token"
+      },
+      "disabled": false,
+      "autoApprove": []
+    }
+  }
+}
+```
+
+**Option 2: Using local installation**
 ```json
 {
   "mcpServers": {
