@@ -105,25 +105,18 @@ Test the server interactively in your browser:
 npx -y @modelcontextprotocol/inspector node dist/index.js
 ```
 
-### Quick Start with npx (Recommended)
+### Quick Start (Recommended)
 
-The easiest way to use the server is directly from GitHub without cloning:
+The easiest way to use the server without cloning is to reference it directly from GitHub. First, clone and build it once:
 
-```json
-{
-  "mcpServers": {
-    "datasf": {
-      "command": "npx",
-      "args": ["-y", "github:fwextensions/datasf-mcp-server"],
-      "env": {
-        "SOCRATA_APP_TOKEN": "your-optional-token"
-      }
-    }
-  }
-}
+```bash
+git clone https://github.com/fwextensions/datasf-mcp.git
+cd datasf-mcp
+npm install
+npm run build
 ```
 
-This will automatically download, build, and run the latest version from GitHub.
+Then use the absolute path in your MCP configuration (see below).
 
 ### Configuration for Claude Desktop
 
@@ -138,7 +131,7 @@ Add to your Claude Desktop config file:
   "mcpServers": {
     "datasf": {
       "command": "node",
-      "args": ["/absolute/path/to/datasf-mcp-server/dist/index.js"],
+      "args": ["/absolute/path/to/datasf-mcp/dist/index.js"],
       "env": {
         "SOCRATA_APP_TOKEN": "your-optional-token"
       }
@@ -147,19 +140,18 @@ Add to your Claude Desktop config file:
 }
 ```
 
-**Important:** Replace `/absolute/path/to/datasf-mcp-server` with the actual full path to this project.
+**Important:** Replace `/absolute/path/to/datasf-mcp` with the actual full path to where you cloned this project.
 
 ### Configuration for Kiro IDE
 
 Create or edit `.kiro/settings/mcp.json`:
 
-**Option 1: Using npx (recommended)**
 ```json
 {
   "mcpServers": {
     "datasf": {
-      "command": "npx",
-      "args": ["-y", "github:fwextensions/datasf-mcp-server"],
+      "command": "node",
+      "args": ["dist/index.js"],
       "env": {
         "SOCRATA_APP_TOKEN": "your-optional-token"
       },
@@ -170,13 +162,14 @@ Create or edit `.kiro/settings/mcp.json`:
 }
 ```
 
-**Option 2: Using local installation**
+If you're using this from outside the project directory, use the absolute path:
+
 ```json
 {
   "mcpServers": {
     "datasf": {
       "command": "node",
-      "args": ["dist/index.js"],
+      "args": ["/absolute/path/to/datasf-mcp/dist/index.js"],
       "env": {
         "SOCRATA_APP_TOKEN": "your-optional-token"
       },
