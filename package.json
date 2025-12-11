@@ -4,11 +4,20 @@
   "description": "MCP server for San Francisco's open data portal (DataSF)",
   "type": "module",
   "main": "dist/index.js",
+  "bin": {
+    "datasf-mcp-server": "dist/index.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
   "scripts": {
     "build": "tsc",
     "start": "node dist/index.js",
     "test": "vitest --run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "prepublishOnly": "npm run build"
   },
   "keywords": [
     "mcp",
