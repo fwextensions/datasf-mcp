@@ -1,0 +1,34 @@
+{
+  "name": "datasf-mcp-server",
+  "version": "1.0.0",
+  "description": "MCP server for San Francisco's open data portal (DataSF)",
+  "type": "module",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "test": "vitest --run",
+    "test:watch": "vitest"
+  },
+  "keywords": [
+    "mcp",
+    "datasf",
+    "socrata",
+    "san-francisco",
+    "open-data"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.24.3",
+    "axios": "^1.13.2",
+    "fuse.js": "^7.1.0",
+    "zod": "^4.1.13",
+    "zod-to-json-schema": "^3.25.0"
+  },
+  "devDependencies": {
+    "@types/node": "^25.0.0",
+    "fast-check": "^4.4.0",
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.15"
+  }
+}
