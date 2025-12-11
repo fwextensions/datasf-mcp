@@ -105,15 +105,34 @@ Test the server interactively in your browser:
 npx -y @modelcontextprotocol/inspector node dist/index.js
 ```
 
-### Quick Start (Recommended)
+### Quick Start with npx (Recommended)
 
-The easiest way to use the server without cloning is to reference it directly from GitHub. First, clone and build it once:
+The easiest way to use the server is directly from GitHub using npx:
+
+```json
+{
+  "mcpServers": {
+    "datasf": {
+      "command": "npx",
+      "args": ["-y", "github:fwextensions/datasf-mcp"],
+      "env": {
+        "SOCRATA_APP_TOKEN": "your-optional-token"
+      }
+    }
+  }
+}
+```
+
+This will automatically download and run the latest version from GitHub without any manual installation.
+
+### Local Installation
+
+Alternatively, clone and install locally:
 
 ```bash
 git clone https://github.com/fwextensions/datasf-mcp.git
 cd datasf-mcp
 npm install
-npm run build
 ```
 
 Then use the absolute path in your MCP configuration (see below).
@@ -126,12 +145,28 @@ Add to your Claude Desktop config file:
 **macOS:** `~/Library/Application Support/Claude/claude_desktop_config.json`  
 **Linux:** `~/.config/Claude/claude_desktop_config.json`
 
+**Option 1: Using npx (recommended)**
 ```json
 {
   "mcpServers": {
     "datasf": {
-      "command": "node",
-      "args": ["/absolute/path/to/datasf-mcp/dist/index.js"],
+      "command": "npx",
+      "args": ["-y", "github:fwextensions/datasf-mcp"],
+      "env": {
+        "SOCRATA_APP_TOKEN": "your-optional-token"
+      }
+    }
+  }
+}
+```
+
+**Option 2: Using local installation**
+```json
+{
+  "mcpServers": {
+    "datasf": {
+      "command": "npx",
+      "args": ["tsx", "/absolute/path/to/datasf-mcp/src/index.ts"],
       "env": {
         "SOCRATA_APP_TOKEN": "your-optional-token"
       }
@@ -146,12 +181,13 @@ Add to your Claude Desktop config file:
 
 Create or edit `.kiro/settings/mcp.json`:
 
+**Option 1: Using npx from GitHub (recommended)**
 ```json
 {
   "mcpServers": {
     "datasf": {
-      "command": "node",
-      "args": ["dist/index.js"],
+      "command": "npx",
+      "args": ["-y", "github:fwextensions/datasf-mcp"],
       "env": {
         "SOCRATA_APP_TOKEN": "your-optional-token"
       },
@@ -162,14 +198,13 @@ Create or edit `.kiro/settings/mcp.json`:
 }
 ```
 
-If you're using this from outside the project directory, use the absolute path:
-
+**Option 2: Using local installation**
 ```json
 {
   "mcpServers": {
     "datasf": {
-      "command": "node",
-      "args": ["/absolute/path/to/datasf-mcp/dist/index.js"],
+      "command": "npx",
+      "args": ["tsx", "src/index.ts"],
       "env": {
         "SOCRATA_APP_TOKEN": "your-optional-token"
       },

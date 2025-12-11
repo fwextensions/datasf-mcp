@@ -1,4 +1,4 @@
-#!/usr/bin/env node
+#!/usr/bin/env tsx
 /**
  * DataSF MCP Server
  * Main entry point that wires all components together

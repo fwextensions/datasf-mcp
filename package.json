@@ -1,24 +1,23 @@
 {
-  "name": "datasf-mcp-server",
+  "name": "datasf-mcp",
   "version": "1.0.0",
   "description": "MCP server for San Francisco's open data portal (DataSF)",
   "type": "module",
-  "main": "dist/index.js",
+  "main": "src/index.ts",
   "bin": {
-    "datasf-mcp-server": "dist/index.js"
+    "datasf-mcp": "src/index.ts"
   },
   "files": [
-    "dist",
+    "src",
     "README.md",
     "LICENSE"
   ],
   "scripts": {
     "build": "tsc",
-    "start": "node dist/index.js",
+    "start": "tsx src/index.ts",
+    "dev": "tsx src/index.ts",
     "test": "vitest --run",
-    "test:watch": "vitest",
-    "prepare": "npm run build",
-    "prepublishOnly": "npm run build"
+    "test:watch": "vitest"
   },
   "keywords": [
     "mcp",
@@ -32,6 +31,7 @@
     "@modelcontextprotocol/sdk": "^1.24.3",
     "axios": "^1.13.2",
     "fuse.js": "^7.1.0",
+    "tsx": "^4.21.0",
     "zod": "^4.1.13",
     "zod-to-json-schema": "^3.25.0"
   },
