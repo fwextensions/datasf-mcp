@@ -98,17 +98,21 @@ The server uses `tsx` to run TypeScript directly without a build step.
 
 ### Testing with MCP Inspector
 
-Test the server interactively in your browser:
+For the MCP Inspector, you'll need to use the local installation:
 
 ```bash
-npx -y @modelcontextprotocol/inspector npx -y github:fwextensions/datasf-mcp
-```
+# First, clone and install locally
+git clone https://github.com/fwextensions/datasf-mcp.git
+cd datasf-mcp
+npm install
 
-Or if you have it installed locally:
-
-```bash
+# Then run the inspector
 npx -y @modelcontextprotocol/inspector tsx src/index.ts
 ```
+
+In the inspector UI, use:
+- **Command:** `tsx`
+- **Arguments:** `src/index.ts` (or absolute path if running from outside the directory)
 
 ### Quick Start with npx (Recommended)
 
