@@ -72,12 +72,14 @@ Query dataset wg3w-h783: SELECT incident_category, COUNT(*) GROUP BY incident_ca
 - Node.js 18 or higher
 - npm or yarn
 
-### Setup
+### Local Setup (Optional)
+
+If you want to run or modify the server locally:
 
 1. Clone the repository:
 ```bash
-git clone <repository-url>
-cd datasf-mcp-server
+git clone https://github.com/fwextensions/datasf-mcp.git
+cd datasf-mcp
 ```
 
 2. Install dependencies:
@@ -85,15 +87,12 @@ cd datasf-mcp-server
 npm install
 ```
 
-3. Build the project:
+3. Run the server:
 ```bash
-npm run build
+npm start
 ```
 
-4. (Optional) Set up a Socrata App Token for higher rate limits:
-```bash
-export SOCRATA_APP_TOKEN=your-token-here
-```
+The server uses `tsx` to run TypeScript directly without a build step.
 
 ## Usage
 
@@ -102,7 +101,13 @@ export SOCRATA_APP_TOKEN=your-token-here
 Test the server interactively in your browser:
 
 ```bash
-npx -y @modelcontextprotocol/inspector node dist/index.js
+npx -y @modelcontextprotocol/inspector npx -y github:fwextensions/datasf-mcp
+```
+
+Or if you have it installed locally:
+
+```bash
+npx -y @modelcontextprotocol/inspector tsx src/index.ts
 ```
 
 ### Quick Start with npx (Recommended)
